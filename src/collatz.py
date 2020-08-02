@@ -20,4 +20,6 @@ def collatz_sequence(n: int) -> List[int]:
     >>> collatz_sequence(3)
     [3, 10, 5, 16, 8, 4, 2, 1]
     """
-    pass
+    if n == 1:
+        return [n]
+    return [n] + (collatz_sequence(n//2) if n % 2 == 0 else collatz_sequence(3*n+1))
